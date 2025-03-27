@@ -8,7 +8,7 @@ FROM base AS dependencies
 COPY package.json package-lock.json* ./
 # Install production dependencies using npm ci for consistency and speed
 # NODE_ENV=production is implicitly used by `npm ci --omit=dev`
-RUN npm ci --omit=dev --ignore-scripts
+RUN npm ci --omit=dev
 # If you have critical production postinstall scripts, remove --ignore-scripts
 
 # ---- Builder Stage ----
@@ -17,7 +17,7 @@ FROM base AS builder
 # Copy package.json and package-lock.json again
 COPY package.json package-lock.json* ./
 # Install ALL dependencies (including devDependencies)
-RUN npm ci --ignore-scripts
+RUN npm ci
 # Copy the rest of the application source code
 COPY . .
 
