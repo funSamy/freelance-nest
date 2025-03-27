@@ -21,7 +21,6 @@ export class FapshiService {
   private readonly baseUrl: string;
 
   constructor(private readonly httpService: HttpService) {
-    this.logger.verbose({apiuser: fapshiConfig.apiUser, apikey: fapshiConfig.apiKey});
     // Set the base URL based on the environment
     this.baseUrl =
       fapshiConfig.environment === 'production' ? fapshiConfig.baseUrl.production : fapshiConfig.baseUrl.sandbox;
