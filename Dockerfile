@@ -67,7 +67,7 @@ EXPOSE 3000
 # The application will read environment variables provided at RUNTIME
 # Optionally run migrations before starting:
 # CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]
+CMD ["sh", "-c", "npx prisma db push deploy && node dist/main.js"]
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
