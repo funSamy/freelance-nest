@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 FROM base AS dependencies
 COPY package.json package-lock.json* ./
 # Install production dependencies using npm ci for consistency and speed
-# NODE_ENV=production is implicitly used by `npm ci --only=production`
-RUN npm ci --only=production --ignore-scripts
+# NODE_ENV=production is implicitly used by `npm ci --omit=dev`
+RUN npm ci --omit=dev --ignore-scripts
 # If you have critical production postinstall scripts, remove --ignore-scripts
 
 # ---- Builder Stage ----
