@@ -1,8 +1,6 @@
 # ---- Base Stage ----
 FROM node:23-alpine AS base
 WORKDIR /usr/src/app
-# Install OS dependencies potentially needed by Prisma at runtime or build
-RUN apk add --no-cache openssl
 
 # ---- Dependencies Stage ----
 # Install only production dependencies
