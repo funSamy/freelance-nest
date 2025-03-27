@@ -1,0 +1,45 @@
+# Git / Version Control
+.git
+.gitignore
+
+# Docker specific files
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.*.yml
+
+# Node.js dependency directory (we install fresh in the container)
+node_modules
+
+# NestJS build output (we build fresh in the container)
+dist
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Environment variables file (will be copied explicitly if needed, but generally kept out of context)
+# .env # Keep this commented if you intend to copy .env in the Dockerfile as requested
+*.env.local
+*.env.development
+*.env.test
+*.env.production
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+
+# Test files (usually not needed in production image)
+test/
+*.spec.ts
+*.e2e-spec.ts
+
+# Prisma specific (optional, migrations are copied explicitly)
+# prisma/migrations/* # Keep if you don't want migrations in build context initially
+# prisma/dev.db # Example local dev database file
